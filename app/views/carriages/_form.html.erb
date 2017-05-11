@@ -1,0 +1,24 @@
+<%= form_for(carriage) do |f| %>
+ <%= render 'common/errors', resource: carriage  %>
+
+  <div class="field">
+    <%= f.label :quality, "Class" %>
+    <%= f.select(:quality, [:coupe, :economy]) %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_seat %>
+    <%= f.number_field :upper_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :bottom_seat %>
+    <%= f.number_field :bottom_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :train %>
+    <%= f.collection_select :train_id, Train.all, :id, :number, { include_blank: true } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -6,6 +6,8 @@ class TrainsController < ApplicationController
   end
 
   def show
+    @economy_carriages = @train.carriages.where(quality: 'economy')
+    @coupe_carriages = @train.carriages.where(quality: 'coupe')
   end
 
   def new
