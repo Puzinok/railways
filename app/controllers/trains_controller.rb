@@ -38,11 +38,12 @@ class TrainsController < ApplicationController
   end
 
   private
-    def set_train
-      @train = Train.find(params[:id])
-    end
 
-    def train_params
-      params.require(:train).permit(:number, :route_id)
-    end
+  def set_train
+    @train = Train.find(params[:id])
+  end
+
+  def train_params
+    params.require(:train).permit(:number, :route_id)
+  end
 end
