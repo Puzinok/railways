@@ -12,5 +12,29 @@
   <% end %>
 </p>
 
+<p>
+<strong>Economy:</strong>
+<br>
+<strong>Carriages:</strong>
+<%= @economy_carriages.count %>
+<br>
+<strong>Bottom seats:</strong>
+<%= @economy_carriages.map(&:bottom_seat).sum %>
+<br>
+<strong>Upper seats:</strong>
+<%= @economy_carriages.map(&:upper_seat).sum %>
+</p>
+<p>
+<strong>Coupe:</strong>
+<br>
+<strong>Carriages:</strong>
+<%= @coupe_carriages.count %>
+<br>
+<strong>Bottom seats:</strong>
+<%= @coupe_carriages.map(&:bottom_seat).sum %>
+<br>
+<strong>Upper seats:</strong>
+<%= @coupe_carriages.map(&:upper_seat).sum %>
+</p>
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

@@ -6,6 +6,8 @@ class TrainsController < ApplicationController
   end
 
   def show
+    @economy_carriages = @train.carriages.where(quality: 'economy')
+    @coupe_carriages = @train.carriages.where(quality: 'coupe')
   end
 
   def new
@@ -38,11 +40,12 @@ class TrainsController < ApplicationController
   end
 
   private
-    def set_train
-      @train = Train.find(params[:id])
-    end
 
-    def train_params
-      params.require(:train).permit(:number, :route_id)
-    end
+  def set_train
+    @train = Train.find(params[:id])
+  end
+
+  def train_params
+    params.require(:train).permit(:number, :route_id)
+  end
 end

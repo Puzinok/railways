@@ -1,0 +1,27 @@
+Rails:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  TargetRubyVersion: '2.4'
+  Exclude:
+    - Gemfile
+    - db/*
+    - test/*
+    - test/**/*
+    - config/**/*
+    - bin/*
