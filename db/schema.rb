@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512204139) do
+ActiveRecord::Schema.define(version: 20170513194255) do
 
   create_table "carriages", force: :cascade do |t|
     t.string  "quality"
     t.integer "upper_seat"
     t.integer "bottom_seat"
     t.integer "train_id"
+    t.integer "number"
+    t.integer "side_upper_seat"
+    t.integer "side_bottom_seat"
+    t.integer "sitting_seat"
+    t.string  "type"
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 
