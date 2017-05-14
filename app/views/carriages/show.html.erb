@@ -4,11 +4,19 @@
   <strong>Carriage #</strong>
   <%= @carriage.id %>
   <br>
+  <strong>Carriage Class:</strong>
+  <%= @carriage.type %>
+  <br>
   <strong>Upper Seat: </strong>
-  <%= @carriage.upper_seat %>
+  <%= @carriage.upper_seat %>,
+  side: <%= @carriage.side_upper_seat %>
   <br>
   <strong>Bottom Seat: </strong>
-  <%= @carriage.bottom_seat %>
+  <%= @carriage.bottom_seat %>,
+  side: <%= @carriage.side_bottom_seat %>
+  <br>
+  <strong>Sitting Seat: </strong>
+  <%= @carriage.sitting_seat %>
   <br>
   <strong>Train:</strong>
   <% if @carriage.train.present? %>
