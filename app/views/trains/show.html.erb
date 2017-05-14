@@ -14,7 +14,7 @@
 
 <p>
 <strong>Carriages:</strong>
-<% @train.carriages.each do |carriage| %>
+<% @train.carriages_order.each do |carriage| %>
   <%= link_to "#{carriage.number}", carriage.becomes(Carriage) %>
 <% end %>
 </p>

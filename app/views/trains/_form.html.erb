@@ -10,6 +10,11 @@
     <%= f.collection_select :route_id, Route.all, :id, :name, { include_blank: true } %>
   </div>
 
+   <div class="field">
+    <%= f.label :numbering %>
+    <%= f.check_box :numbering %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

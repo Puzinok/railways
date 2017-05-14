@@ -6,4 +6,12 @@ class Train < ApplicationRecord
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id, optional: true
 
   validates :number, presence: true
+
+  def carriages_order
+    if numbering
+      carriages
+    else
+      carriages.order(number: :desc)
+    end
+  end
 end
