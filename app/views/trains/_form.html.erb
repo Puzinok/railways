@@ -11,8 +11,11 @@
   </div>
 
    <div class="field">
-    <%= f.label :numbering %>
-    <%= f.check_box :numbering %>
+   <strong>Carriage numering:</strong><br>
+    <%= f.label :numbering, 'Direct'%>
+    <%= f.radio_button :numbering, true %><br>
+    <%= f.label :numbering, 'Reverse'%>
+    <%= f.radio_button :numbering, false %>
   </div>
 
   <div class="actions">

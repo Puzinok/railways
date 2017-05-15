@@ -1,6 +1,6 @@
 class Train < ApplicationRecord
   has_many :tickets
-  has_many :carriages
+  has_many :carriages, -> { order(number: :asc) }
 
   belongs_to :route, optional: true
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id, optional: true
@@ -11,7 +11,7 @@ class Train < ApplicationRecord
     if numbering
       carriages
     else
-      carriages.order(number: :desc)
+      carriages.reverse_order
     end
   end
 end
