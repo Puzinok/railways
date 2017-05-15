@@ -14,4 +14,8 @@ class Train < ApplicationRecord
       carriages.reverse_order
     end
   end
+
+  def seats_sum(carriage_type, seat_type)
+    carriages.where(type: carriage_type).sum(seat_type)
+  end
 end
