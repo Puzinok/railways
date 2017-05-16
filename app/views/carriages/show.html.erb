@@ -27,4 +27,5 @@
 </p>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |
-<%= link_to 'Back', carriages_path %>
+<%= link_to 'Back', @carriage.train %> |
+<%= link_to 'Destroy', @carriage, method: :delete, data: { confirm: 'Are you sure?' } %> 
