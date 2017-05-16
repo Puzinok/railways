@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516091132) do
+ActiveRecord::Schema.define(version: 20170516200829) do
 
   create_table "carriages", force: :cascade do |t|
-    t.string  "quality"
     t.integer "upper_seat"
     t.integer "bottom_seat"
     t.integer "train_id"
