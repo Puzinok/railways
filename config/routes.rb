@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :railway_stations do
     patch :update_position, on: :member
+    patch :set_times, on: :member
   end
   resources :routes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
