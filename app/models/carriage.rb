@@ -21,10 +21,10 @@ class Carriage < ApplicationRecord
   private
 
   def set_number
-    if train.carriages.first.nil?
-      self.number = 1
-    else
-      self.number = train.carriages.last.number + 1
-    end
+    self.number = if train.carriages.first&.number.nil?
+                    1
+                  else
+                    train.carriages.last.number + 1
+                  end
   end
 end
