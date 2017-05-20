@@ -1,0 +1,5 @@
+<% @search_results.each do |r| %>
+  <% r.each do |train| %>
+    <%= link_to "#{train.number}", train %><br>
+    <% end %>
+<% end %> 

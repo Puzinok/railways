@@ -7,6 +7,10 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
+  def self.find_trains(start_station, end_station)
+    joins(:railway_stations).where(railway_stations: { id: start_station, id: end_station }).map(&:trains)
+  end
+
   private
 
   def set_name

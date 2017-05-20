@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Search and Buy Ticket</h1>
+<%= form_tag results_search_path do %>
+  Start station:
+  <%= collection_select :search, :start_station, RailwayStation.all, :id, :name %>
+  <br>
+  End station:
+  <%= collection_select :search, :end_station, RailwayStation.all, :id, :name %>
+  <%= submit_tag "Search" %>
+<% end %>
