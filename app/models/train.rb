@@ -7,6 +7,12 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
+  def self.find_trains_by(start_station, end_station)
+    start_trains = Train.joins(route: :railway_stations).where('route.railway_stations' == start_station)
+    end_trains = Train.joins(route: :railway_stations).where('route.railway_stations' == end_station)
+    start_trains & end_trains
+  end
+
   def carriages_order
     if numbering
       carriages
