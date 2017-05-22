@@ -3,7 +3,10 @@ class SearchesController < ApplicationController
   end
 
   def results
-    @search_results = Route.find_trains(search_params[:start_station], search_params[:end_station])
+    @start_station = RailwayStation.find(search_params[:start_station])
+    @end_station = RailwayStation.find(search_params[:end_station])
+
+    @trains = Route.find_trains(@start_station, @end_station).flatten
   end
 
   def search_params
