@@ -1,0 +1,15 @@
+<h2>Booking Ticket</h2>
+<%= form_tag tickets_path method: :post do %>
+  <%= hidden_field_tag :train_id, @train.id %> <br>
+  <%= @train.number %><br>
+  <%= text_field_tag :departure_time, @departure_time, readonly: true %><br>
+  <%= text_field_tag :arrival_time, @arrival_time, readonly: true %><br>
+  <%= text_field_tag :start_station, @start_station.name %>
+  <%= text_field_tag :end_station, @end_station.name %>
+  <br><br>
+  <%= text_field_tag :full_name %>
+  <%= text_field_tag :passsport %>
+
+
+  <%= submit_tag 'BUY!' %>
+  <% end %>

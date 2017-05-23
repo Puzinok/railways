@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     patch :set_times, on: :member
   end
   resources :routes
-  resource :search, only: [:new, :show, :edit] do
+  resource :search, only: [:show] do
     post :results
   end
+  resources :tickets
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

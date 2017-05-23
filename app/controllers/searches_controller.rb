@@ -10,6 +10,6 @@ class SearchesController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:start_station, :end_station)
+    params.require(:search).permit(:start_station, :end_station, :train_id, :departure_time, :arrival_time)
   end
 end

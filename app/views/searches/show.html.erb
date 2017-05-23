@@ -5,6 +5,5 @@
   <br>
   End station:
   <%= collection_select :search, :end_station, RailwayStation.all, :id, :name %>
-  <br>
   <%= submit_tag "Search" %>
 <% end %>
