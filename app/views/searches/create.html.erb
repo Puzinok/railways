@@ -1,5 +1,4 @@
 <h2>Found Trains:</h2>
-
   <table border="1">
     <thead>
       <tr>
@@ -10,25 +9,16 @@
       </tr>
     </thead>
     <tbody>
-<% if @trains.present? %>
-  <% @trains.each do |train| %>
-        <tr>
-          <%= form_tag new_ticket_path, method: :get do %>
-          <td><%= train.number %>
-          <%= hidden_field_tag :train_id, train.id %>
-          <%= hidden_field_tag :start_station, @start_station.id %>
-          <%= hidden_field_tag :end_station, @end_station.id %>
-          </td>
-          <td><%= text_field_tag :departure_time, @start_station.time_in(train.route, :departure_time), readonly: true %></td>
-          <td><%= text_field_tag :arrival_time, @end_station.time_in(train.route, :arrival_time), readonly: true %></td>
-          <td>
-          <%= submit_tag 'Buy' %></td>
-          <% end %>
-        </tr>
-  <% end %>
-<% else %>
-  Trains not found!
-<% end %>
-
+      <% @trains.each do |train| %>
+      <tr>
+        <td><%= train.number %></td>
+        <td><%= @start_station.time_in(train.route, :departure_time) %></td>
+        <td><%= @end_station.time_in(train.route, :arrival_time) %></td>
+        
+        <td><%= link_to 'Buy', new_ticket_path( start_station_id: @start_station.id,
+                                                end_station_id: @end_station.id,
+                                                train_id: train.id) %></td>
+      </tr>
+      <% end %>
     </tbody>
   </table>

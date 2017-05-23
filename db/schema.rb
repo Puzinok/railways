@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170522231704) do
     t.integer "start_station_id"
     t.integer "end_station_id"
     t.integer "user_id"
+    t.string  "passport"
     t.string  "full_name"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170522231704) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "passport"
   end
 
 end

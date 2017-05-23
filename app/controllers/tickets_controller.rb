@@ -1,38 +1,34 @@
 class TicketsController < ApplicationController
-  
+ 
   def show
-    @ticket = Ticket.find(params[:ticket_id])
+    @ticket = Ticket.find(params[:id])
   end
 
   def new
     @ticket = Ticket.new
-    @departure_time = params[:departure_time]
-    @arrival_time = params[:arrival_time]
     @train = Train.find(params[:train_id])
-    @start_station = RailwayStation.find(params[:start_station])
-    @end_station = RailwayStation.find(params[:end_station])
+    @start_station = RailwayStation.find(params[:start_station_id])
+    @end_station = RailwayStation.find(params[:end_station_id])
   end
 
   def create
-    @user = User.first
     @ticket = Ticket.new(ticket_params)
+    @ticket.user = User.first
 
     if @ticket.save
-      redirect_to @ticket
+      redirect_to ticket_path(@ticket)
     else
-      redirect_to search_path
+      redirect_to newsearch_path, notice: 'Ticket not  purchased!!!'
     end
   end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit( :start_station,
-                                    :end_station,
-                                    :train,
-                                    :full_name,
-                                    :passport,
-                                    :arrival_time,
-                                    :departure_time)
+    params.require(:ticket).permit(:start_station_id,
+                                   :end_station_id,
+                                   :train_id,
+                                   :full_name,
+                                   :passport)
   end
 end

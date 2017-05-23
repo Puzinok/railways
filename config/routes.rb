@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   resources :routes
   resource :search, only: [:show,:create]
-  resources :tickets
+  resources :tickets, only: [:show, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
