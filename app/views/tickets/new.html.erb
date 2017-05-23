@@ -1,5 +1,5 @@
 <h2>Booking Ticket</h2>
-<%= form_tag tickets_path method: :post do %>
+<%= form_tag tickets_path(@ticket), method: :post do %>
   <%= hidden_field_tag :train_id, @train.id %> <br>
   <%= @train.number %><br>
   <%= text_field_tag :departure_time, @departure_time, readonly: true %><br>

@@ -1,5 +1,5 @@
 <h1>Search and Buy Ticket</h1>
-<%= form_tag results_search_path do %>
+<%= form_tag search_path, method: :post do %>
   Start station:
   <%= collection_select :search, :start_station, RailwayStation.all, :id, :name %>
   <br>

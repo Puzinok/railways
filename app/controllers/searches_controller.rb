@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   def show
   end
 
-  def results
+  def create
     @start_station = RailwayStation.find(search_params[:start_station])
     @end_station = RailwayStation.find(search_params[:end_station])
 
