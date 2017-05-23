@@ -6,7 +6,7 @@ class Carriage < ApplicationRecord
   scope :slepping, -> { where(type: 'SleppingCarriage') }
   scope :sitting, -> { where(type: 'SittingCarriage') }
 
-  before_validation :set_number
+  after_validation :set_number
 
   validates :upper_seat,
             :bottom_seat,
@@ -18,13 +18,9 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: { scope: :train_id }
 
-  private
+  #private
 
   def set_number
-    self.number = if train.carriages.first&.number.nil?
-                    1
-                  else
-                    train.carriages.last.number + 1
-                  end
+    self.number = train.carriages.count + 1
   end
 end

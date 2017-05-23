@@ -18,7 +18,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
-      redirect_to newsearch_path, notice: 'Ticket not  purchased!!!'
+      redirect_to search_path, notice: 'Ticket not  purchased!!!'
     end
   end
 
