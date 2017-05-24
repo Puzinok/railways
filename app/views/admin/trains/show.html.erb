@@ -14,11 +14,11 @@
   <strong>Carriages:</strong>
   <ul>
     <% @train.carriages_order.each do |carriage| %>
-      <li><%= link_to "#{carriage.number}", carriage.becomes(Carriage) %></li>
+      <li><%= link_to "#{carriage.number}", [:admin, carriage.becomes(Carriage)] %></li>
     <% end %>
   </ul>
-  <%= link_to "Add Carriage", new_train_carriage_path(@train) %>
+  <%= link_to "Add Carriage", new_admin_train_carriage_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

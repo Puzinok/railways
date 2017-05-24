@@ -1,4 +1,4 @@
-class RoutesController < ApplicationController
+class Admin::RoutesController < Admin::BaseController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
   def index
     @routes = Route.all
@@ -17,7 +17,7 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(route_params)
     if @route.save
-      redirect_to @route, notice: 'Route was successfully created!'
+      redirect_to [:admin, @route], notice: 'Route was successfully created!'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class RoutesController < ApplicationController
 
   def update
     if @route.update(route_params)
-      redirect_to @route, notice: 'Route was successfully updated.'
+      redirect_to [:admin, @route], notice: 'Route was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_url, notice: 'Route was successfully destroyed!'
+    redirect_to admin_routes_url, notice: 'Route was successfully destroyed!'
   end
 
   private

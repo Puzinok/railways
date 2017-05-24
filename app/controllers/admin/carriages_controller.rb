@@ -1,4 +1,4 @@
-class CarriagesController < ApplicationController
+class Admin::CarriagesController < Admin::BaseController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
   def index
@@ -19,7 +19,7 @@ class CarriagesController < ApplicationController
     @carriage = @train.carriages.new(carriage_params)
 
     if @carriage.save
-      redirect_to @train
+      redirect_to [:admin, @train]
     else
       render :new
     end

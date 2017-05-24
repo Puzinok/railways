@@ -1,1 +1,11 @@
 <h1>Railway Tickets System</h1>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <ul>
+      <li><%= link_to "Trains", admin_trains_path %></li>
+      <li><%= link_to "Routes", admin_routes_path %></li>
+      <li><%= link_to "Railway stations", admin_railway_stations_path %></li>
+    </ul>
+  <% end %>
+<% end %>
+

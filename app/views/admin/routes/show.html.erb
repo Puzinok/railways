@@ -20,12 +20,12 @@
         <% @route.railway_stations.ordered.each do |station| %>
           <tr>
           <td><%= station.name %></td>
-          <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+          <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
             <td><%= number_field_tag :position, station.position_in(@route) %></td>
                 <%= hidden_field_tag :route_id, @route.id %>
             <td><%= submit_tag "Change" %></td>
           <% end %>
-          <%= form_tag set_times_railway_station_path(station), method: :patch do %>
+          <%= form_tag set_times_admin_railway_station_path(station), method: :patch do %>
             <td><%= time_field_tag :arrival_time, station.time_in(@route, :arrival_time ) %></td>
             <td><%= time_field_tag :departure_time, station.time_in(@route, :departure_time) %></td>    
                 <%= hidden_field_tag :route_id, @route.id %>
@@ -48,5 +48,5 @@
   <% end %>
   </ul>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>
