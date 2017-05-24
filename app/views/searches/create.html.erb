@@ -14,10 +14,15 @@
         <td><%= train.number %></td>
         <td><%= @start_station.time_in(train.route, :departure_time) %></td>
         <td><%= @end_station.time_in(train.route, :arrival_time) %></td>
-        
+        <% if current_user.admin? %>
+        <td><%= link_to 'Buy', new_admin_ticket_path( start_station_id: @start_station.id,
+                                                end_station_id: @end_station.id,
+                                                train_id: train.id) %></td>
+        <% else %>
         <td><%= link_to 'Buy', new_ticket_path( start_station_id: @start_station.id,
                                                 end_station_id: @end_station.id,
                                                 train_id: train.id) %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

@@ -18,7 +18,7 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: { scope: :train_id }
 
-  #private
+  private
 
   def set_number
     self.number = train.carriages.count + 1

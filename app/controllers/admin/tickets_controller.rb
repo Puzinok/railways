@@ -1,9 +1,9 @@
-class TicketsController < ApplicationController
+class Admin::TicketsController < Admin::BaseController
   before_action :authenticate_user!
-  before_action :set_ticket, only: [:show, :destroy]
+  before_action :set_ticket, only: [:show, :destroy, :edit, :update]
 
   def index
-    @tickets = current_user.tickets
+    @tickets = Ticket.all
   end
 
   def show
@@ -17,18 +17,32 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = current_user.tickets.new(ticket_params)
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to ticket_path(@ticket)
+      redirect_to [:admin, @ticket]
     else
       redirect_to search_path, notice: 'Ticket not  purchased!!!'
     end
   end
 
+  def edit
+    @train = @ticket.train
+    @start_station = @ticket.start_station
+    @end_station = @ticket.end_station
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      redirect_to [:admin, @ticket], notice: 'Ticket was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @ticket.destroy
-    redirect_to tickets_url, notice: 'Ticket was successfully destroyed.'
+    redirect_to admin_tickets_url, notice: 'Ticket was successfully destroyed.'
   end
 
   private
@@ -42,6 +56,7 @@ class TicketsController < ApplicationController
                                    :end_station_id,
                                    :train_id,
                                    :full_name,
-                                   :passport)
+                                   :passport,
+                                   :user_id)
   end
 end

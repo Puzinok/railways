@@ -1,0 +1,26 @@
+<h2>All tickets</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <td>Train #</td>
+      <td>Departure</td>
+      <td>Arrival</td>
+      <td>User</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.train.number %></td>
+      <td><%= ticket.start_station.name %></td>
+      <td><%= ticket.end_station.name %></td>
+      <td><%= ticket.user.email %></td>
+      <td><%= link_to "Show", [:admin, ticket] %> |
+          <%= link_to "Edit", edit_admin_ticket_path(ticket) %>|
+            <%= link_to "Delete", [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to "New Ticket", search_path %>

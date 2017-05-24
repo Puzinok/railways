@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :search, only: [:show,:create]
-  resources :tickets, only: [:show, :new, :create]
+  resources :tickets, except: [:edit, :update]
 
   namespace :admin do
     resources :trains do
