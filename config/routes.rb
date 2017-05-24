@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root "homes#index"
+
   resources :trains do
     resources :carriages, shallow: true
   end
@@ -10,6 +13,5 @@ Rails.application.routes.draw do
   resource :search, only: [:show,:create]
   resources :tickets, only: [:show, :new, :create]
 
-  root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
