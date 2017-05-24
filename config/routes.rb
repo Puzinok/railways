@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :routes
   resource :search, only: [:show,:create]
   resources :tickets, only: [:show, :new, :create]
+
+  root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
