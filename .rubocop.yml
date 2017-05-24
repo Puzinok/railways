@@ -16,6 +16,9 @@ Style/SymbolArray:
 Metrics/LineLength:
   Max: 120
 
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: '2.4'
   Exclude:

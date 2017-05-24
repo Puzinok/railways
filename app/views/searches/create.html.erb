@@ -1,0 +1,24 @@
+<h2>Found Trains:</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>Train</td>
+        <td>Departure from <%= @start_station.name %></td>
+        <td>Arrival to <%= @end_station.name %></td>
+        <td>Buy</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trains.each do |train| %>
+      <tr>
+        <td><%= train.number %></td>
+        <td><%= @start_station.time_in(train.route, :departure_time) %></td>
+        <td><%= @end_station.time_in(train.route, :arrival_time) %></td>
+        
+        <td><%= link_to 'Buy', new_ticket_path( start_station_id: @start_station.id,
+                                                end_station_id: @end_station.id,
+                                                train_id: train.id) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

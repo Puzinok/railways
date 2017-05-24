@@ -13,10 +13,13 @@
 </p>
 
 <p>
-<strong>Carriages:</strong>
-<% @train.carriages_order.each do |carriage| %>
-  <%= link_to "#{carriage.number}", carriage.becomes(Carriage) %>
-<% end %>
+  <strong>Carriages:</strong>
+  <ul>
+    <% @train.carriages_order.each do |carriage| %>
+      <li><%= link_to "#{carriage.number}", carriage.becomes(Carriage) %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Add Carriage", new_train_carriage_path(@train) %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
