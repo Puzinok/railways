@@ -6,7 +6,7 @@ class Carriage < ApplicationRecord
   scope :slepping, -> { where(type: 'SleppingCarriage') }
   scope :sitting, -> { where(type: 'SittingCarriage') }
 
-  after_validation :set_number
+  before_validation :set_number
 
   validates :upper_seat,
             :bottom_seat,
@@ -21,6 +21,6 @@ class Carriage < ApplicationRecord
   private
 
   def set_number
-    self.number = train.carriages.count + 1
+    self.number ||= train.carriages.count + 1
   end
 end

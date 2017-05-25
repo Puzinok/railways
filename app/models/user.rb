@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :confirmable, :validatable
 
   has_many :tickets
+
+  def full_name
+    "#{name} #{surname}"
+  end
 end

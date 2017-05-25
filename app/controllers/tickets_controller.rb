@@ -34,7 +34,7 @@ class TicketsController < ApplicationController
   private
 
   def set_ticket
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
   end
 
   def ticket_params

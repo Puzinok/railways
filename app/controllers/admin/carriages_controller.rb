@@ -27,7 +27,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to @carriage, notice: 'Carriage was successfully updated.'
+      redirect_to [:admin, @carriage], notice: 'Carriage was successfully updated.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def destroy
     @carriage.destroy
-    redirect_to @carriage.train, notice: 'Carriage was successfully destroyed!'
+    redirect_to [:admin, @carriage.train], notice: 'Carriage was successfully destroyed!'
   end
 
   private

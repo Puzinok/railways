@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :tickets, except: [:edit, :update]
 
   namespace :admin do
+    root "homes#index"
+
     resources :trains do
       resources :carriages, shallow: true
     end
