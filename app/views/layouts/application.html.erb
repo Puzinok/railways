@@ -11,8 +11,10 @@
   <body>
   <header>
     <% if user_signed_in? %>
-      User: <%= current_user.email %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      Hello <%= current_user.name %> <%= current_user.surname %>  |
+      <%= link_to "Tickets", tickets_path %> |
+      <%= link_to "Search", search_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
     <% else %>
       <%= link_to "Login", new_user_session_path %> 
     <% end %>
