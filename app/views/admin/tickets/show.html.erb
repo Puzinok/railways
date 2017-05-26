@@ -1,0 +1,11 @@
+<h3>Train # <%= @ticket.train.number %></h3>
+<h4>Departure from: <%= @ticket.start_station.name %></h4>
+<h4>Departure time: <%= @ticket.start_station.time_in(@ticket.train.route, :departure_time) %> </h4>
+<hr style="border-top: dotted 1px;" >
+<h4>Arrival from: <%= @ticket.end_station.name %></h4>
+<h4>Arrival time: <%= @ticket.end_station.time_in(@ticket.train.route, :arrival_time) %> </h4>
+<hr style="border-top: dotted 1px;" >
+<h3>Passenger: <%= @ticket.full_name %></h3>
+<h4>Passport: <%= @ticket.passport %></h4>
+<%= link_to "Edit", edit_admin_ticket_path(@ticket) %> |
+<%= link_to "Back", admin_tickets_path %>

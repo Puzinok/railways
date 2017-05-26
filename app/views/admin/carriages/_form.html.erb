@@ -1,0 +1,32 @@
+<%= form_for [:admin, @train, carriage] do |f| %>
+ <%= render 'common/errors', resource: carriage  %>
+
+  <div class="field">
+    <%= f.label :upper_seat %>
+    <%= f.number_field :upper_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :bottom_seat %>
+    <%= f.number_field :bottom_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :side_upper_seat %>
+    <%= f.number_field :side_upper_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :side_bottom_seat %>
+    <%= f.number_field :side_bottom_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :sitting_seat %>
+    <%= f.number_field :sitting_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :train %>
+    <%= carriage.train.try(:number) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
