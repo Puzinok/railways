@@ -1,0 +1,55 @@
+strong
+  | Name:
+= @route.name
+br
+strong
+  | Stations:
+table
+  thead
+    tr
+      td
+        | Title
+      td
+        | Position
+      td
+        | Action
+      td
+        | Arrival
+      td
+        | Departure
+  tbody
+    - if @route.railway_stations.empty?
+      tr
+        td
+          | No stations in the route!
+    - else
+      - @route.railway_stations.ordered.each do |station|
+        tr
+          td
+            = station.name
+          = form_tag update_position_admin_railway_station_path(station), method: :patch do
+            td
+              = number_field_tag :position, station.position_in(@route)
+            = hidden_field_tag :route_id, @route.id
+            td
+              = submit_tag "Change"
+          = form_tag set_times_admin_railway_station_path(station), method: :patch do
+            td
+              = time_field_tag :arrival_time, station.time_in(@route, :arrival_time )
+            td
+              = time_field_tag :departure_time, station.time_in(@route, :departure_time)
+            = hidden_field_tag :route_id, @route.id
+            td
+              = submit_tag '✓'
+strong
+  | Trains:
+ul
+  - if @route.trains.empty?
+    |  No trains in the route! 
+  - else
+    - @route.trains.each do |train|
+      li
+        = train.number
+= link_to 'Edit', edit_admin_route_path(@route)
+|  | 
+= link_to 'Back', admin_routes_path

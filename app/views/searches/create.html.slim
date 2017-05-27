@@ -1,0 +1,34 @@
+h2
+  | Found Trains:
+table[border="1"]
+  thead
+    tr
+      td
+        | Train
+      td
+        | Departure from 
+        = @start_station.name
+      td
+        | Arrival to 
+        = @end_station.name
+      td
+        | Buy
+  tbody
+    - @trains.each do |train|
+      tr
+        td
+          = train.number
+        td
+          = @start_station.time_in(train.route, :departure_time)
+        td
+          = @end_station.time_in(train.route, :arrival_time)
+        - if current_user.admin?
+          td
+            = link_to 'Buy', new_admin_ticket_path(start_station_id: @start_station.id, \
+            end_station_id: @end_station.id, \
+            train_id: train.id)
+        - else
+          td
+            = link_to 'Buy', new_ticket_path(start_station_id: @start_station.id, \
+            end_station_id: @end_station.id, \
+            train_id: train.id)

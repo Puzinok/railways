@@ -1,0 +1,36 @@
+p
+  strong
+    | Carriage #
+  = @carriage.number
+  br
+  strong
+    | Carriage Class:
+  = @carriage.type
+  br
+  strong
+    | Upper Seat: 
+  = @carriage.upper_seat
+  | , side: 
+  = @carriage.side_upper_seat
+  br
+  strong
+    | Bottom Seat: 
+  = @carriage.bottom_seat
+  | , side: 
+  = @carriage.side_bottom_seat
+  br
+  strong
+    | Sitting Seat: 
+  = @carriage.sitting_seat
+  br
+  strong
+    | Train:
+  - if @carriage.train.present?
+    = @carriage.train.number
+  - else
+    |  Train not assigned! 
+= link_to 'Edit', edit_admin_carriage_path(@carriage)
+|  | 
+= link_to 'Back', [:admin, @carriage.train]
+|  | 
+= link_to 'Destroy', [:admin, @carriage], method: :delete, data: { confirm: 'Are you sure?' }

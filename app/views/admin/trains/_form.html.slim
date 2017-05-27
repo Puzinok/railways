@@ -1,0 +1,19 @@
+= form_for [:admin, train] do |f|
+  = render 'common/errors', resource: train
+  .field
+    = f.label :number
+    = f.text_field :number
+  .field
+    = f.label :route
+    = f.collection_select :route_id, Route.all, :id, :name, { include_blank: true }
+  .field
+    strong
+      | Carriage numering:
+    br
+    = f.label :numbering, 'Direct'
+    = f.radio_button :numbering, true
+    br
+    = f.label :numbering, 'Reverse'
+    = f.radio_button :numbering, false
+  .actions
+    = f.submit

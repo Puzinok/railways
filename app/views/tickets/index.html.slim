@@ -1,0 +1,25 @@
+h2
+  | Purchased tickets
+table[border="1"]
+  thead
+    tr
+      td
+        | Train #
+      td
+        | Departure
+      td
+        | Arrival
+      td
+  tbody
+    - @tickets.each do |ticket|
+      tr
+        td
+          = ticket.train.number
+        td
+          = ticket.start_station.name
+        td
+          = ticket.end_station.name
+        td
+          = link_to "Show", ticket_path(ticket)
+          |  | 
+          = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }

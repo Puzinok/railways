@@ -1,0 +1,22 @@
+= form_for [:admin, @train, carriage] do |f|
+  = render 'common/errors', resource: carriage
+  .field
+    = f.label :upper_seat
+    = f.number_field :upper_seat
+  .field
+    = f.label :bottom_seat
+    = f.number_field :bottom_seat
+  .field
+    = f.label :side_upper_seat
+    = f.number_field :side_upper_seat
+  .field
+    = f.label :side_bottom_seat
+    = f.number_field :side_bottom_seat
+  .field
+    = f.label :sitting_seat
+    = f.number_field :sitting_seat
+  .field
+    = f.label :train
+    = carriage.train.try(:number)
+  .actions
+    = f.submit

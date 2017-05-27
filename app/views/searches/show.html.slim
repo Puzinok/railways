@@ -1,0 +1,9 @@
+h1
+  | Search and Buy Ticket
+= form_tag search_path, method: :post do
+  |  Start station: 
+  = collection_select :search, :start_station_id, RailwayStation.all, :id, :name
+  br
+  |  End station: 
+  = collection_select :search, :end_station_id, RailwayStation.all, :id, :name
+  = submit_tag "Search"

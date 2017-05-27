@@ -1,0 +1,32 @@
+h2
+  | All tickets
+table[border="1"]
+  thead
+    tr
+      td
+        | Train #
+      td
+        | Departure
+      td
+        | Arrival
+      td
+        | User
+      td
+  tbody
+    - @tickets.each do |ticket|
+      tr
+        td
+          = ticket.train.number
+        td
+          = ticket.start_station.name
+        td
+          = ticket.end_station.name
+        td
+          = ticket.user.email
+        td
+          = link_to "Show", [:admin, ticket]
+          |  | 
+          = link_to "Edit", edit_admin_ticket_path(ticket)
+          | | 
+          = link_to "Delete", [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }
+= link_to "New Ticket", search_path

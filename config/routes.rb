@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "homes#index"
+  root "searches#show"
   devise_for :users
 
   resource :search, only: [:show,:create]
