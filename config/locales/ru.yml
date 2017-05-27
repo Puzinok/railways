@@ -1,2 +1,11 @@
 ru:
-  hello:
+  common:
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    hello: "Привет"
+    search: "Поиск"
+    tickets: "Билеты"
+    my_tickets: "Мои билеты"
+    trains: "Поезда"
+    routes: "Маршруты"
+    railway_stations: "Станции"
