@@ -23,6 +23,6 @@ table.table.table-bordered
         td
           = @end_station.time_in(train.route, :arrival_time)
         td
-          = link_to t('.buy'), new_ticket_path(start_station_id: @start_station.id, \
+          = link_to t('.buy'), new_admin_ticket_path(start_station_id: @start_station.id, \
           end_station_id: @end_station.id, \
           train_id: train.id), class: 'btn btn-primary'

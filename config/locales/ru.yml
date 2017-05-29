@@ -20,6 +20,16 @@ ru:
     carriages: 'Вагоны: '
     add_carriage: 'Добавить вагон'
     are_you_sure: 'Вы уверены?'
+  searches:
+      show:
+        title: 'Найти поезд'
+        search: 'Поиск'
+      create:
+        found_trains: 'Найденые поезда:'
+        train: 'Поезд'
+        departure: 'Отправление из '
+        arrival: 'Прибытие в '
+        buy: 'Купить'
   admin:
     trains:
       index:
@@ -60,5 +70,16 @@ ru:
         title: 'Изменить маршрут'
       form:
         submit: '%{action} маршрут'
+    searches:
+      show:
+        title: 'Найти поезд'
+        search: 'Поиск'
+      create:
+        found_trains: 'Найденые поезда:'
+        train: 'Поезд'
+        departure: 'Отправление из '
+        arrival: 'Прибытие в '
+        buy: 'Купить'
+
 
 

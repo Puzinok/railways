@@ -1,7 +1,7 @@
 h3
   = t('.title')
 div.row
-  = form_tag search_path, method: :post do
+  = form_tag admin_search_path, method: :post do
     .col-md-4
       = collection_select :search, :start_station_id, RailwayStation.all, :id, :name, {}, { class: 'form-control'}
     .col-md-4

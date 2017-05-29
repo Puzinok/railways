@@ -1,6 +1,6 @@
-h2
+h3
   | All tickets
-table[border="1"]
+table.table.table-bordered
   thead
     tr
       td
@@ -24,9 +24,7 @@ table[border="1"]
         td
           = ticket.user.email
         td
-          = link_to "Show", [:admin, ticket]
-          |  | 
-          = link_to "Edit", edit_admin_ticket_path(ticket)
-          | | 
-          = link_to "Delete", [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }
-= link_to "New Ticket", search_path
+          = link_to "Show", [:admin, ticket], class: 'btn btn-default'
+          = link_to "Edit", edit_admin_ticket_path(ticket), class: 'btn btn-primary'
+          = link_to "Delete", [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+= link_to "New Ticket", admin_search_path, class: 'btn btn-primary'

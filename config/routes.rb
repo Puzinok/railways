@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "homes#index"
+    resource :search, only: [:show,:create]
 
     resources :trains do
       resources :carriages, shallow: true

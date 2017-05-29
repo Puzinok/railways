@@ -1,6 +1,6 @@
-h2
+h3
   | Purchased tickets
-table[border="1"]
+table.table.table-bordered
   thead
     tr
       td
@@ -20,6 +20,5 @@ table[border="1"]
         td
           = ticket.end_station.name
         td
-          = link_to "Show", ticket_path(ticket)
-          |  | 
-          = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to "Show", ticket_path(ticket), class: 'btn btn-default'
+          = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
