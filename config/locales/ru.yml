@@ -1,11 +1,52 @@
 ru:
   common:
-    sign_in: "Войти"
-    sign_out: "Выйти"
-    hello: "Привет"
-    search: "Поиск"
-    tickets: "Билеты"
-    my_tickets: "Мои билеты"
-    trains: "Поезда"
-    routes: "Маршруты"
-    railway_stations: "Станции"
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
+    hello: 'Привет'
+    search: 'Поиск'
+    tickets: 'Билеты'
+    my_tickets: 'Мои билеты'
+    trains: 'Поезда'
+    new_train: 'Создать поезд'
+    number: 'Номер'
+    routes: 'Маршруты'
+    route_not_assigned: 'Маршрут не назначен'
+    railway_stations: 'Станции'
+    errors: 'Возникли ошибки: %{errors}'
+    show: 'Просмотр'
+    edit: 'Изменить'
+    destroy: 'Удалить'
+    back: 'Назад'
+    carriages: 'Вагоны: '
+    add_carriage: 'Добавить вагон'
+    are_you_sure: 'Вы уверены?'
+  admin:
+    trains:
+      index:
+        title: 'Поезда'
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Изменить поезд'
+      show:
+        title: 'Поезд № %{number}'
+        route: 'Маршрут: '
+      form:
+        number: 'Номер: '
+        route: 'Маршрут: '
+        numbering: 'Нумерация: '
+        direct: 'C головы'
+        reverse: 'C конца'
+        submit: '%{action} поезд'
+      train:
+        show: 'Просмотр'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+    errors:
+      models:
+        train:
+          attributes:
+            blank: 'пусто'
+
+
+

@@ -1,0 +1,8 @@
+ru:
+ activerecord:
+    errors:
+      models:
+        train:
+          attributes:
+            number:
+              blank: "ddd"
