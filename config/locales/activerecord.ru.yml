@@ -8,6 +8,8 @@ ru:
   attributes:
     train:
       number: 'Номер'
+    route:
+      railway_station_ids: 'Станция'
   errors:
     messages:
       blank: 'не может быть пустой'

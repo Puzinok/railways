@@ -42,11 +42,23 @@ ru:
         show: 'Просмотр'
         edit: 'Изменить'
         destroy: 'Удалить'
-    errors:
-      models:
-        train:
-          attributes:
-            blank: 'пусто'
-
+    routes:
+      index:
+        title: 'Маршруты'
+        new_route: 'Создать маршрут'
+      new:
+        title: 'Новый маршрут'
+      show:
+        title: 'Маршрут %{name}'
+        trains: 'Поезда: '
+        name: 'Название'
+        position: 'Позиция'
+        aсtion: 'Действие'
+        arrival_time: 'Прибытие'
+        departure_time: 'Отправление'
+      edit:
+        title: 'Изменить маршрут'
+      form:
+        submit: '%{action} маршрут'
 
 

@@ -1,22 +1,20 @@
-strong
-  | Name:
-= @route.name
-br
-strong
-  | Stations:
-table
+h3
+  = t('.title', name: @route.name )
+table.table.table-bordered
   thead
     tr
       td
-        | Title
+        = t('.name')
       td
-        | Position
+        = t('.position')
       td
-        | Action
+        = t('.action')
       td
-        | Arrival
+        = t('.arrival_time')
       td
-        | Departure
+        = t('.departure_time')
+      td
+        = t('common.edit')
   tbody
     - if @route.railway_stations.empty?
       tr
@@ -42,7 +40,7 @@ table
             td
               = submit_tag '✓'
 strong
-  | Trains:
+  = t('.trains')
 ul
   - if @route.trains.empty?
     |  No trains in the route! 
@@ -50,6 +48,6 @@ ul
     - @route.trains.each do |train|
       li
         = train.number
-= link_to 'Edit', edit_admin_route_path(@route)
-|  | 
-= link_to 'Back', admin_routes_path
+.form-group
+= link_to t('common.edit'), edit_admin_route_path(@route), class: 'btn btn-default'
+= link_to t('common.back'), admin_routes_path, class: 'btn btn-default'
