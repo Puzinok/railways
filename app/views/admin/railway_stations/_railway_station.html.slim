@@ -2,8 +2,6 @@ tr
   td
     = railway_station.name
   td
-    = link_to 'Show', [:admin, railway_station]
-  td
-    = link_to 'Edit', edit_admin_railway_station_path(railway_station)
-  td
-    = link_to 'Destroy', [:admin, railway_station], method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to 'Show', [:admin, railway_station], class: 'btn btn-default'
+    = link_to 'Edit', edit_admin_railway_station_path(railway_station), class: 'btn btn-primary'
+    = link_to 'Destroy', [:admin, railway_station], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

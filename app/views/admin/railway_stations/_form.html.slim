@@ -1,7 +1,9 @@
 = form_for [:admin, railway_station] do |f|
   = render 'common/errors', resource: railway_station
-  .field
-    = f.label :name
+  .input-group
+    span.input-group-addon
+      | Title
     = f.text_field :name
+  br
   .actions
     = f.submit
