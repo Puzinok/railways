@@ -1,8 +1,13 @@
 ru:
  activerecord:
-    errors:
-      models:
-        train:
-          attributes:
-            number:
-              blank: "ddd"
+  models:
+    train: 'Поезд'
+    railway_station: 'Станция'
+    carriage: 'Вагон'
+    ticket: 'Билет'
+  attributes:
+    train:
+      number: 'Номер'
+  errors:
+    messages:
+      blank: 'не может быть пустой'

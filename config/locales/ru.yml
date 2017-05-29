@@ -12,7 +12,7 @@ ru:
     routes: 'Маршруты'
     route_not_assigned: 'Маршрут не назначен'
     railway_stations: 'Станции'
-    errors: 'Возникли ошибки: %{errors}'
+    errors: 'При сохранении %{name} возникли ошибки'
     show: 'Просмотр'
     edit: 'Изменить'
     destroy: 'Удалить'
