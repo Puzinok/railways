@@ -1,0 +1,32 @@
+= form_for [:admin, ticket]  do |f|
+  .form-group
+    = f.label :user
+    = f.collection_select :user_id, User.all, :id, :name, {}, {class: 'form-control'}
+  .form-group
+    |  Train #: 
+    = @train.number
+  .form-group
+    = f.hidden_field(:train_id, value: @train.id)
+    |  Departure station: 
+    = @start_station.name
+    |  | 
+    = f.hidden_field(:start_station_id, value: @start_station.id)
+    |  Time: 
+    = @start_station.time_in(@train.route, :departure_time)
+    br
+    |  Arrival station: 
+    = @end_station.name
+    |  | 
+    = f.hidden_field(:end_station_id, value: @end_station.id)
+    |  Time: 
+    = @end_station.time_in(@train.route, :arrival_time)
+  .input-group
+    span.input-group-addon
+      | Full Name
+    = f.text_field :full_name, class: 'form-control'
+  .input-group
+    span.input-group-addon
+      | Passport
+    = f.text_field :passport, class: 'form-control'
+  br
+    = f.submit

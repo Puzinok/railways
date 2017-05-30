@@ -1,0 +1,8 @@
+- if resource.errors.any?
+  .alert.alert-danger
+    h4 
+      = t('common.errors', name: resource.class)
+    ul
+      - resource.errors.full_messages.each do |message|
+        li
+          = message

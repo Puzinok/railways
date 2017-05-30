@@ -1,0 +1,19 @@
+h3
+  = t('.title')
+table.table.table-bordered
+  thead
+    tr
+      th
+        = t('.names')
+      th
+  tbody
+    - @routes.each do |route|
+      tr
+        td
+          = route.name
+        td
+          = link_to t('common.show'), [:admin, route], class: 'btn btn-default'
+          = link_to t('common.edit'), edit_admin_route_path(route), class: 'btn btn-primary'
+          = link_to t('common.destroy'), [:admin, route], method: :delete, data: { confirm: 'are_you_sure' }, class: 'btn btn-danger'
+          '
+= link_to t('.new_route'), new_admin_route_path, class: 'btn btn-primary'

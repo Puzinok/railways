@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "homes#index"
+  root "searches#show"
   devise_for :users
 
   resource :search, only: [:show,:create]
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "homes#index"
+    resource :search, only: [:show,:create]
 
     resources :trains do
       resources :carriages, shallow: true

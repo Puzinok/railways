@@ -1,0 +1,11 @@
+h3
+  | Railway Stations
+table.table.table-bordered
+  thead
+    tr
+      th
+        | Name
+      th
+  tbody
+    = render @railway_stations
+= link_to 'New Railway Station', new_admin_railway_station_path, class: 'btn btn-primary'

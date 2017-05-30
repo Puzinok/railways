@@ -1,0 +1,85 @@
+ru:
+  common:
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
+    hello: 'Привет'
+    search: 'Поиск'
+    tickets: 'Билеты'
+    my_tickets: 'Мои билеты'
+    trains: 'Поезда'
+    new_train: 'Создать поезд'
+    number: 'Номер'
+    routes: 'Маршруты'
+    route_not_assigned: 'Маршрут не назначен'
+    railway_stations: 'Станции'
+    errors: 'При сохранении %{name} возникли ошибки'
+    show: 'Просмотр'
+    edit: 'Изменить'
+    destroy: 'Удалить'
+    back: 'Назад'
+    carriages: 'Вагоны: '
+    add_carriage: 'Добавить вагон'
+    are_you_sure: 'Вы уверены?'
+  searches:
+      show:
+        title: 'Найти поезд'
+        search: 'Поиск'
+      create:
+        found_trains: 'Найденые поезда:'
+        train: 'Поезд'
+        departure: 'Отправление из '
+        arrival: 'Прибытие в '
+        buy: 'Купить'
+  admin:
+    trains:
+      index:
+        title: 'Поезда'
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Изменить поезд'
+      show:
+        title: 'Поезд № %{number}'
+        route: 'Маршрут: '
+      form:
+        number: 'Номер: '
+        route: 'Маршрут: '
+        numbering: 'Нумерация: '
+        direct: 'C головы'
+        reverse: 'C конца'
+        submit: '%{action} поезд'
+      train:
+        show: 'Просмотр'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+    routes:
+      index:
+        title: 'Маршруты'
+        new_route: 'Создать маршрут'
+      new:
+        title: 'Новый маршрут'
+      show:
+        title: 'Маршрут %{name}'
+        trains: 'Поезда: '
+        name: 'Название'
+        position: 'Позиция'
+        aсtion: 'Действие'
+        arrival_time: 'Прибытие'
+        departure_time: 'Отправление'
+      edit:
+        title: 'Изменить маршрут'
+      form:
+        submit: '%{action} маршрут'
+    searches:
+      show:
+        title: 'Найти поезд'
+        search: 'Поиск'
+      create:
+        found_trains: 'Найденые поезда:'
+        train: 'Поезд'
+        departure: 'Отправление из '
+        arrival: 'Прибытие в '
+        buy: 'Купить'
+
+
+

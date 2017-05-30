@@ -1,0 +1,14 @@
+= form_for [:admin, train] do |f|
+  = render 'common/errors', resource: train
+  .form-group
+    .field
+      = f.label t('.number')
+      = f.text_field :number, class: 'form-control'
+    .field
+      = f.label t('.route')
+      = f.collection_select :route_id, Route.all, :id, :name, { include_blank: true }, {class: 'form-control'}
+    .field
+      = f.label t('.numbering')
+      = f.select :numbering, [[t('.direct'), true], [t('.reverse'), false]], {}, {class: 'form-control'}
+    .actions
+      = f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить')

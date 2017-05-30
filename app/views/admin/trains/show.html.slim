@@ -1,0 +1,18 @@
+h3
+  = t('.title', number: @train.number)
+strong
+  = t('.route')
+- if @train.route.present?
+  = @train.route.name
+- else
+  = t('common.route_not_assigned')
+p
+  strong
+  = t('common.carriages')
+  ul
+    - @train.carriages_order.each do |carriage|
+      li
+        = link_to "#{carriage.number}", [:admin, carriage.becomes(Carriage)]
+  = link_to t('common.add_carriage'), new_admin_train_carriage_path(@train), class: 'btn btn-default'
+= link_to t('common.edit'), edit_admin_train_path(@train), class: 'btn btn-default'
+= link_to t('common.back'), admin_trains_path, class: 'btn btn-default'

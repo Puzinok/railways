@@ -1,0 +1,26 @@
+.navbar.navbar-default.navbar-static-top
+        .container
+          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to "Railways", root_path, class: 'navbar-brand'
+          .navbar-collapse.collapse.navbar-responsive-collapse
+            ul.nav.navbar-nav
+              li
+                = link_to t('common.my_tickets'), tickets_path
+              li
+                = link_to t('common.search'), search_path
+            ul.nav.navbar-nav.navbar-right
+              - if user_signed_in?
+                li
+                  p
+                  = t('common.hello')
+                  ',
+                  = current_user.full_name
+                  '!
+                li
+                  = link_to t('common.sign_out'), destroy_user_session_path, method: :delete
+              - else
+                li
+                  = link_to t('common.sign_in'), new_user_session_path
