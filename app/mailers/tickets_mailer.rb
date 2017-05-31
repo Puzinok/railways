@@ -3,13 +3,13 @@ class TicketsMailer < ApplicationMailer
     @user = user
     @ticket = ticket
     
-    mail(to: user.email, subject: t('common.your_buy_ticket', route: ticket.route.name))
+    mail(to: user.email, subject: t('common.your_ticket', route: ticket.route_name))
   end
 
   def cancel_ticket(user, ticket)
     @user = user
     @ticket = ticket
     
-    mail(to: user.email, subject: t('common.cancellation_your_ticket'))
+    mail(to: user.email, subject: t('common.cancellation_your_ticket', route: ticket.route_name))
   end
 end
