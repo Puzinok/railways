@@ -1,0 +1,12 @@
+h3
+  | Hello, 
+  = @user.full_name
+p
+strong
+  | Your ticket was canceled:
+br
+strike
+  = @ticket.route_name
+p
+  | All your tickets 
+  = link_to 'here.', tickets_url
