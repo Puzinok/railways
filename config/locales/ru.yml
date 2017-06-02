@@ -20,6 +20,8 @@ ru:
     carriages: 'Вагоны: '
     add_carriage: 'Добавить вагон'
     are_you_sure: 'Вы уверены?'
+    your_ticket: 'Ваш билет %{route}'
+    cancellation_your_ticket: 'Ваш билет %{route} отменен!'
   searches:
       show:
         title: 'Найти поезд'
