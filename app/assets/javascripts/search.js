@@ -3,11 +3,11 @@ $(document).ready(function() {
    var start_station;
    var end_station;
 
-   start_station = $(this).find('#start_station_id'); 
-   end_station = $(this).find('#end_station_id');
+   start_station = $(this).find('#search_start_station_id'); 
+   end_station = $(this).find('#search_end_station_id');
 
-   if (start_station.val() == end_station.val()) {
-    alert('Станции равны!');
+   if (start_station.val() === end_station.val()) {
+    alert('Надо выбрать разные станции!');
     return false;
    }
   });

@@ -11,4 +11,4 @@
       = f.label t('.numbering')
       = f.select :numbering, [[t('.direct'), true], [t('.reverse'), false]], {}, {class: 'form-control'}
     .actions
-      = f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить')
+      = f.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить')
