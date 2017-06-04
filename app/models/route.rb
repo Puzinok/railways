@@ -5,7 +5,7 @@ class Route < ApplicationRecord
 
   validates :railway_station_ids, presence: true
 
-  before_save :set_name
+  before_create :set_name
 
   private
 

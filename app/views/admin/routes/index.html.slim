@@ -10,7 +10,10 @@ table.table.table-bordered
     - @routes.each do |route|
       tr
         td
-          = route.name
+          div id=('route_id_'+"#{route.id}")
+            = route.name
+          = render 'name_form', route: route
+          = link_to t('common.edit'), '', class: 'edit_route btn btn-link', data: { route_id: "#{route.id}"}
         td
           = link_to t('common.show'), [:admin, route], class: 'btn btn-default'
           = link_to t('common.edit'), edit_admin_route_path(route), class: 'btn btn-primary'
