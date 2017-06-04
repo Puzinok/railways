@@ -5,7 +5,9 @@ class Train < ApplicationRecord
   belongs_to :route, optional: true
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id, optional: true
 
-  validates :number, presence: true
+  validates :number, format: { with: /[A-Z]{2}-?\d{3}/,
+                               message: "Correct format: AA-123" },
+                               presence: true
 
   def self.find_trains_by(start_station, end_station)
     start_trains = Train.joins(route: :railway_stations).where(railway_stations: { id: start_station })
