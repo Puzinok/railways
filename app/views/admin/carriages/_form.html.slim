@@ -4,31 +4,22 @@
     .col-md-2
       .form-group
         = f.label :type
-        = f.select :type,
-          options_for_select([['economy', 'EconomyCarriage'],
-                              ['coupe', 'CoupeCarriage'],
-                              ['sitting', 'SittingCarriage'],
-                              ['slepping', 'SleppingCarriage' ]])
-      #upper
-        .form-group
-          = f.label :upper_seat
-          = f.number_field :upper_seat, class: 'form-control'
-      #bottom
-        .form-group
-          = f.label :bottom_seat
-          = f.number_field :bottom_seat, class: 'form-control'
-      #side_upper
-        .form-group
-          = f.label :side_upper_seat
-          = f.number_field :side_upper_seat, class: 'form-control'
-      #side_bottom
-        .form-group
-          = f.label :side_bottom_seat
-          = f.number_field :side_bottom_seat, class: 'form-control'
-      #sitting
-        .form-group
-          = f.label :sitting_seat
-          = f.number_field :sitting_seat, class: 'form-control'
+        = f.select :type, Carriage.types.map {|t| [t.underscore.humanize.split[0], t]}, include_blank: true
+      #upper.form-group
+        = f.label :upper_seat
+        = f.number_field :upper_seat, class: 'form-control'
+      #bottom.form-group
+        = f.label :bottom_seat
+        = f.number_field :bottom_seat, class: 'form-control'
+      #side_upper.form-group
+        = f.label :side_upper_seat
+        = f.number_field :side_upper_seat, class: 'form-control'
+      #side_bottom.form-group
+        = f.label :side_bottom_seat
+        = f.number_field :side_bottom_seat, class: 'form-control'
+      #sitting.form-group
+        = f.label :sitting_seat
+        = f.number_field :sitting_seat, class: 'form-control'
 
       .actions
         = f.button t('common.save'), class: 'btn btn-primary'

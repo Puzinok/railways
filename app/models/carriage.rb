@@ -13,6 +13,10 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: { scope: :train_id }
 
+  def self.types
+    %w(EconomyCarriage CoupeCarriage SleppingCarriage SittingCarriage)
+  end
+
   private
 
   def set_number

@@ -1,9 +1,18 @@
 $(document).ready(function(){
+  var type_selected;
+  type_selected = $('#carriage_type option:selected').text();
+  
+  showInputsForType(type_selected);
+
   $('#carriage_type').change(function() {
     type_selected = $('#carriage_type option:selected').text();
-    
+    showInputsForType(type_selected);
+  });
+
+  function showInputsForType(type_select){
+    console.log(type_select)
     switch(type_selected) {
-      case 'economy':
+      case 'Economy':
         $('#sitting').hide();
         $('#side_upper').show();
         $('#side_bottom').show();
@@ -11,7 +20,7 @@ $(document).ready(function(){
         $('#bottom').show();
         break;
 
-      case 'coupe':
+      case 'Coupe':
         $('#sitting').hide();
         $('#side_upper').hide();
         $('#side_bottom').hide();
@@ -19,7 +28,7 @@ $(document).ready(function(){
         $('#bottom').show();
         break;
 
-      case 'slepping':
+      case 'Slepping':
         $('#sitting').hide();
         $('#side_upper').hide();
         $('#side_bottom').hide();
@@ -27,7 +36,7 @@ $(document).ready(function(){
         $('#bottom').show();
         break;
 
-      case 'sitting':
+      case 'Sitting':
         $('#sitting').show();
         $('#side_upper').hide();
         $('#side_bottom').hide();
@@ -35,5 +44,5 @@ $(document).ready(function(){
         $('#bottom').hide();
         break;
     }
-  });
+  }
 });
