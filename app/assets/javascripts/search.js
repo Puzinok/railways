@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.search_form').submit(function(){
    var start_station;
    var end_station;

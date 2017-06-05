@@ -1,4 +1,5 @@
-$(document).ready(function(){
+
+$(document).on('turbolinks:load', function(){
   var type_selected;
   type_selected = $('#carriage_type option:selected').text();
   
@@ -6,11 +7,11 @@ $(document).ready(function(){
 
   $('#carriage_type').change(function() {
     type_selected = $('#carriage_type option:selected').text();
+    $('input').val(null);
     showInputsForType(type_selected);
   });
 
   function showInputsForType(type_select){
-    console.log(type_select)
     switch(type_selected) {
       case 'Economy':
         $('#sitting').hide();

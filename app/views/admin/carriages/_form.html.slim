@@ -4,7 +4,7 @@
     .col-md-2
       .form-group
         = f.label :type
-        = f.select :type, Carriage.types.map {|t| [t.underscore.humanize.split[0], t]}, include_blank: true
+        = f.select :type, Carriage.types.map { |t| [t.underscore.humanize.split[0], t] }, { include_blank: true }, { class: 'form-control' }  
       #upper.form-group
         = f.label :upper_seat
         = f.number_field :upper_seat, class: 'form-control'
@@ -20,6 +20,5 @@
       #sitting.form-group
         = f.label :sitting_seat
         = f.number_field :sitting_seat, class: 'form-control'
-
-      .actions
+      .form-group
         = f.button t('common.save'), class: 'btn btn-primary'
