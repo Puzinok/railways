@@ -1,15 +1,6 @@
 h3
   | New Carriage
-select#carriage_types
-  option
-  option[value='economy'] Economy
-  option[value='coupe'] Coupe
-  option[value='sitting'] Sitting
-  option[value='slepping'] Slepping
-= render 'economy_form', carriage: @economy_carriage.becomes(Carriage) 
-= render 'coupe_form', carriage: @coupe_carriage.becomes(Carriage) 
-= render 'sitting_form', carriage: @sitting_carriage.becomes(Carriage)
-= render 'slepping_form', carriage: @slepping_carriage.becomes(Carriage)
 
-br
+= render 'form', carriage: @carriage
+
 = link_to 'Back', admin_train_path(@train), class: 'btn btn-primary'

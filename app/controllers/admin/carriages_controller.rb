@@ -9,10 +9,7 @@ class Admin::CarriagesController < Admin::BaseController
   end
 
   def new
-    @economy_carriage = EconomyCarriage.new
-    @coupe_carriage = CoupeCarriage.new
-    @sitting_carriage = SittingCarriage.new
-    @slepping_carriage = SleppingCarriage.new
+    @carriage = Carriage.new
   end
 
   def edit
