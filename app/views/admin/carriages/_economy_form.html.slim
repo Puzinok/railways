@@ -1,27 +1,22 @@
-= form_for [:admin, @train, carriage], class: 'form-horizontal' do |f|
+= form_for [:admin, @train, carriage], html: { id: 'new_economy_carriage',
+                                               class: 'form-horizontal',
+                                               style: "display: none"} do |f|
   = render 'common/errors', resource: carriage
   .row
     .col-md-2
       .form-group
-        = f.label :type
-        = f.select(:type, %w[EconomyCarriage CoupeCarriage SittingCarriage SleppingCarriage])
-      .form-group
+        = f.hidden_field :type, value: 'EconomyCarriage'
+
         = f.label :upper_seat
         = f.number_field :upper_seat, class: 'form-control'
-      .form-group
+
         = f.label :bottom_seat
         = f.number_field :bottom_seat, class: 'form-control'
-      .form-group
+
         = f.label :side_upper_seat
         = f.number_field :side_upper_seat, class: 'form-control'
-      .form-group
+
         = f.label :side_bottom_seat
         = f.number_field :side_bottom_seat, class: 'form-control'
-      .form-group
-        = f.label :sitting_seat
-        = f.number_field :sitting_seat, class: 'form-control'
-      .form-group
-        = f.label :train
-        = carriage.train.try(:number)
       .actions
         = f.button t('common.save'), class: 'btn btn-primary'
