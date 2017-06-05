@@ -1,11 +1,39 @@
 $(document).ready(function(){
   $('#carriage_type').change(function() {
-    var type_selected;
-    var form;
-
     type_selected = $('#carriage_type option:selected').text();
-    form = $('#' + type_selected + '_carriage' )
-    $("div[id*='carriage']").hide();
-    form.toggle();
+    
+    switch(type_selected) {
+      case 'economy':
+        $('#sitting').hide();
+        $('#side_upper').show();
+        $('#side_bottom').show();
+        $('#upper').show();
+        $('#bottom').show();
+        break;
+
+      case 'coupe':
+        $('#sitting').hide();
+        $('#side_upper').hide();
+        $('#side_bottom').hide();
+        $('#upper').show();
+        $('#bottom').show();
+        break;
+
+      case 'slepping':
+        $('#sitting').hide();
+        $('#side_upper').hide();
+        $('#side_bottom').hide();
+        $('#upper').hide();
+        $('#bottom').show();
+        break;
+
+      case 'sitting':
+        $('#sitting').show();
+        $('#side_upper').hide();
+        $('#side_bottom').hide();
+        $('#upper').hide();
+        $('#bottom').hide();
+        break;
+    }
   });
 });
