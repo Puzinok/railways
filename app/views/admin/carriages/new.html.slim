@@ -1,4 +1,5 @@
-h1
+h3
   | New Carriage
+
 = render 'form', carriage: @carriage
-= link_to 'Back', admin_train_path(@train)
+= link_to 'Back', admin_train_path(@train), class: 'btn btn-default'

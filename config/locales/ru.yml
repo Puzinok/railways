@@ -50,6 +50,8 @@ ru:
         direct: 'C головы'
         reverse: 'C конца'
         submit: '%{action} поезд'
+      number_form:
+        submit: 'сохранить'
       train:
         show: 'Просмотр'
         edit: 'Изменить'

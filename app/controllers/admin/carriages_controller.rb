@@ -54,6 +54,7 @@ class Admin::CarriagesController < Admin::BaseController
                                      :side_upper_seat,
                                      :side_bottom_seat,
                                      :sitting_seat,
-                                     :train_id)
+                                     :train_id,
+                                     :type)
   end
 end

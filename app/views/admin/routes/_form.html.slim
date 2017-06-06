@@ -5,4 +5,3 @@
     = f.collection_select :railway_station_ids, RailwayStation.all, :id, :name, {}, { multiple: true, class: 'form-control'}
   .actions
     = f.submit t('.submit', action: @route.new_record? ? 'Содать' : 'Изменить')
-
