@@ -1,47 +1,19 @@
 $(document).on('turbolinks:load', function(){
-  var type_selected = $('#carriage_type option:selected').text();
-  
-  showInputsForType(type_selected);
+  var type = $('#carriage_type option:selected').text();
+  showInputs(type);
 
   $('#carriage_type').change(function(){
-    type_selected = $('#carriage_type option:selected').text();
-    $('input#carriage_inputs').val(null);
-    showInputsForType(type_selected);
+    $("#carriage_inputs input").val(null);
+    var type = $('#carriage_type option:selected').text();
+    showInputs(type);
   });
 
-  function showInputsForType(type_select){
-    switch(type_selected) {
-      case 'Economy':
-        $('#sitting').hide();
-        $('#side_upper').show();
-        $('#side_bottom').show();
-        $('#upper').show();
-        $('#bottom').show();
-        break;
-
-      case 'Coupe':
-        $('#sitting').hide();
-        $('#side_upper').hide();
-        $('#side_bottom').hide();
-        $('#upper').show();
-        $('#bottom').show();
-        break;
-
-      case 'Slepping':
-        $('#sitting').hide();
-        $('#side_upper').hide();
-        $('#side_bottom').hide();
-        $('#upper').hide();
-        $('#bottom').show();
-        break;
-
-      case 'Sitting':
-        $('#sitting').show();
-        $('#side_upper').hide();
-        $('#side_bottom').hide();
-        $('#upper').hide();
-        $('#bottom').hide();
-        break;
+  function showInputs(type){
+    var carriage = new Object();
+    carriage[type] = function(type) {
+      $("div[class*='_carriage']").hide();
+      $('.'+ type + '_carriage').show();
     }
+    carriage[type](type.toLowerCase());
   }
 });
