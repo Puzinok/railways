@@ -1,11 +1,9 @@
-
 $(document).on('turbolinks:load', function(){
-  var type_selected;
-  type_selected = $('#carriage_type option:selected').text();
+  var type_selected = $('#carriage_type option:selected').text();
   
   showInputsForType(type_selected);
 
-  $('#carriage_type').change(function() {
+  $('#carriage_type').change(function(){
     type_selected = $('#carriage_type option:selected').text();
     $('input#carriage_inputs').val(null);
     showInputsForType(type_selected);
