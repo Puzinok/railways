@@ -1,7 +1,7 @@
 = form_for [:admin, @train, carriage.becomes(Carriage)], html: { class: 'form-horizontal'} do |f|
   = render 'common/errors', resource: carriage
   .row
-    .col-md-2
+    .col-md-2#carriage_inputs
       .form-group
         = f.label :type
         = f.select :type, Carriage.types.map { |t| [t.underscore.humanize.split[0], t] }, { include_blank: true }, { class: 'form-control' }  
