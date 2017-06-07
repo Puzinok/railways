@@ -4,6 +4,8 @@ nav.nav.has-shadow
       = link_to "Railways", root_path, class: 'nav-item'
       = link_to t('common.my_tickets'), tickets_path, class: 'nav-item is-tab is-hidden-mobile'
       = link_to t('common.search'), search_path, class: 'nav-item is-tab is-hidden-mobile'
+      - if current_user.admin?
+        = link_to t('common.dashboard'), admin_root_path, class: 'nav-item is-tab'
     span#nav-toggle.nav-toggle
       span
       span
