@@ -20,7 +20,13 @@ h1.title
             = ticket.start_station.name
           td
             = ticket.end_station.name
-          td
+          td.is-hidden-mobile
+            .block
+              = link_to "Show", ticket_path(ticket), class: 'button is-primary'
+              |  
+              = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger'
+        tr.is-hidden-tablet
+          td[colspan="3"]
             .block
               = link_to "Show", ticket_path(ticket), class: 'button is-primary'
               |  
