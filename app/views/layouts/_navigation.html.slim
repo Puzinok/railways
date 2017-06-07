@@ -10,7 +10,7 @@ nav.nav.has-shadow
       span
     #nav-menu.nav-right.nav-menu
       = link_to t('common.my_tickets'), tickets_path, class: 'nav-item is-tab is-hidden-tablet'
-      = link_to t('common.search'), tickets_path, class: 'nav-item is-tab is-hidden-tablet'
+      = link_to t('common.search'), search_path, class: 'nav-item is-tab is-hidden-tablet'
       a.nav-item.is-tab
         - if user_signed_in?
           = t('common.hello')
