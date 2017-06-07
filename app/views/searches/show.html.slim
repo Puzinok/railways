@@ -1,10 +1,15 @@
-h3
+h1.title
   = t('.title')
-div.row
+  hr
   = form_tag search_path, class: 'search_form', method: :post do
-    .col-md-4
-      = collection_select :search, :start_station_id, RailwayStation.all, :id, :name, {}, { class: 'form-control'}
-    .col-md-4
-      = collection_select :search, :end_station_id, RailwayStation.all, :id, :name, {}, {class: 'form-control'}
-    .col-md-4
-      = submit_tag t('.search')
+    .columns
+      .column.is-3
+        .field
+          span.select.is-large
+            = collection_select :search, :start_station_id, RailwayStation.all, :id, :name
+      .column.is-3
+        .field
+          span.select.is-large
+            = collection_select :search, :end_station_id, RailwayStation.all, :id, :name
+      .column.is-1
+        = button_tag t('.search'), class: 'button is-primary is-large '

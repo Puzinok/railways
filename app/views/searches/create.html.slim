@@ -1,28 +1,30 @@
-h2
+h1.title
   = t('.found_trains')
-table.table.table-bordered
-  thead
-    tr
-      td
-        = t('.train')
-      td
-        = t('.departure')
-        = @start_station.name
-      td
-        = t('.arrival')
-        = @end_station.name
-      td
-        
-  tbody
-    - @trains.each do |train|
+hr
+.column.is-8
+  table.table.is-bordered
+    thead
       tr
         td
-          = train.number
+          = t('.train')
         td
-          = @start_station.time_in(train.route, :departure_time)
+          = t('.departure')
+          = @start_station.name
         td
-          = @end_station.time_in(train.route, :arrival_time)
+          = t('.arrival')
+          = @end_station.name
         td
-          = link_to t('.buy'), new_ticket_path(start_station_id: @start_station.id, \
-          end_station_id: @end_station.id, \
-          train_id: train.id), class: 'btn btn-primary'
+          
+    tbody
+      - @trains.each do |train|
+        tr
+          td
+            = train.number
+          td
+            = @start_station.time_in(train.route, :departure_time)
+          td
+            = @end_station.time_in(train.route, :arrival_time)
+          td
+            = link_to t('.buy'), new_ticket_path(start_station_id: @start_station.id, \
+            end_station_id: @end_station.id, \
+            train_id: train.id), class: 'button is-primary'

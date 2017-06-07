@@ -1,4 +1,4 @@
-h3
+h1.title
   | Purchased tickets
 table.table.table-bordered
   thead
@@ -20,5 +20,7 @@ table.table.table-bordered
         td
           = ticket.end_station.name
         td
-          = link_to "Show", ticket_path(ticket), class: 'btn btn-default'
-          = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
+          .block
+            = link_to "Show", ticket_path(ticket), class: 'button is-primary'
+            |  
+            = link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger'
