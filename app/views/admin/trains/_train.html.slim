@@ -1,10 +1,12 @@
 tr
-  td
+  td[width="300px"]
     div id=("train_number_" "#{train.id}")
       = train.number
     = render 'number_form', train: train
     = link_to t('common.edit'), '', class: 'edit_train btn-xs btn-link',  data: { train_id: "#{train.id}" }
   td
-    = link_to t('common.show'), [:admin, train], class: 'btn btn-default'
-    = link_to t('common.edit'), edit_admin_train_path(train), class: 'btn btn-success'
-    = link_to t('common.destroy'), [:admin, train], method: :delete, class: 'btn btn-danger', data: { confirm: t('common.are_you_sure') }
+    = link_to t('common.show'), [:admin, train], class: 'button is-primary'
+    |  
+    = link_to t('common.edit'), edit_admin_train_path(train), class: 'button is-warning'
+    |  
+    = link_to t('common.destroy'), [:admin, train], method: :delete, class: 'button is-danger', data: { confirm: t('common.are_you_sure') }

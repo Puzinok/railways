@@ -1,18 +1,24 @@
-h3
+h1.title
   = t('.title', number: @train.number)
-strong
+hr
+h5.title.is-5
   = t('.route')
 - if @train.route.present?
-  = @train.route.name
+  h4.subtitle.is-4
+    = @train.route.name
 - else
   = t('common.route_not_assigned')
-p
-  strong
+hr
+h5.title.is-5
   = t('common.carriages')
-  ul
-    - @train.carriages_order.each do |carriage|
-      li
-        = link_to "#{carriage.number}", [:admin, carriage.becomes(Carriage)]
-  = link_to t('common.add_carriage'), new_admin_train_carriage_path(@train), class: 'btn btn-default'
-= link_to t('common.edit'), edit_admin_train_path(@train), class: 'btn btn-default'
-= link_to t('common.back'), admin_trains_path, class: 'btn btn-default'
+
+- @train.carriages_order.each do |carriage|
+  span
+    = link_to "#{carriage.number}", [:admin, carriage.becomes(Carriage)], class: "button is-primary"
+    |  
+.section
+= link_to t('common.add_carriage'), new_admin_train_carriage_path(@train), class: 'button is-primary'
+|  
+= link_to t('common.edit'), edit_admin_train_path(@train), class: 'button is-warning'
+|    
+= link_to t('common.back'), admin_trains_path, class: 'button is-primary'
