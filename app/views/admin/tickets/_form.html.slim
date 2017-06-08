@@ -1,32 +1,52 @@
-= form_for [:admin, ticket]  do |f|
-  .form-group
-    = f.label :user
-    = f.collection_select :user_id, User.all, :id, :name, {}, {class: 'form-control'}
-  .form-group
-    |  Train #: 
-    = @train.number
-  .form-group
-    = f.hidden_field(:train_id, value: @train.id)
-    |  Departure station: 
-    = @start_station.name
-    |  | 
-    = f.hidden_field(:start_station_id, value: @start_station.id)
-    |  Time: 
-    = @start_station.time_in(@train.route, :departure_time)
-    br
-    |  Arrival station: 
-    = @end_station.name
-    |  | 
-    = f.hidden_field(:end_station_id, value: @end_station.id)
-    |  Time: 
-    = @end_station.time_in(@train.route, :arrival_time)
-  .input-group
-    span.input-group-addon
-      | Full Name
-    = f.text_field :full_name, class: 'form-control'
-  .input-group
-    span.input-group-addon
-      | Passport
-    = f.text_field :passport, class: 'form-control'
-  br
-    = f.submit
+.column.is-6.is-flex-mobile
+  = form_for [:admin, ticket]  do |f|
+    table.table.is-narrow
+      tr
+        th
+          = f.label :user
+        td
+          .field
+            span.select
+              = f.collection_select :user_id, User.all, :id, :name
+      tr
+        th
+          = t('.train')
+        td
+          = @train.number
+          = f.hidden_field(:train_id, value: @train.id)
+      tr
+        th
+          = t('.departure_station')
+        td
+          = @start_station.name
+          = f.hidden_field(:start_station_id, value: @start_station.id) 
+      tr
+        th
+          = t('.departure_time')
+        td
+          = @start_station.time_in(@train.route, :departure_time)
+      tr
+        th
+          = t('.arrival_station')
+        td
+          = @end_station.name
+          = f.hidden_field(:end_station_id, value: @end_station.id)
+      tr
+        th
+          = t('.arrival_time')
+        td
+          = @end_station.time_in(@train.route, :arrival_time)
+      tr
+        th
+          = t('.full_name')
+        td
+          = f.text_field :full_name, class: 'input'
+      tr
+        th
+          = t('.passport')
+        td
+          = f.text_field :passport, class: 'input'
+
+    = link_to "Back", admin_tickets_path, class: 'button is-primary'
+    |  
+    = f.button class: 'button is-info'

@@ -1,5 +1,6 @@
-h3
-  | Edit Ticket
+h1.title
+  = t('.ticket')
+hr
 = render 'form', ticket: @ticket
 .form-group
 = link_to 'Show', [:admin, @ticket], class: 'btn btn-default'

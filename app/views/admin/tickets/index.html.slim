@@ -1,6 +1,7 @@
-h3
-  | All tickets
-table.table.table-bordered
+h1.title
+  = t('.tickets')
+hr
+table.table.is-bordered
   thead
     tr
       td
@@ -24,7 +25,9 @@ table.table.table-bordered
         td
           = ticket.user.email
         td
-          = link_to "Show", [:admin, ticket], class: 'btn btn-default'
-          = link_to "Edit", edit_admin_ticket_path(ticket), class: 'btn btn-primary'
-          = link_to "Delete", [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-= link_to "New Ticket", admin_search_path, class: 'btn btn-primary'
+          = link_to t('common.show'), [:admin, ticket], class: 'button is-primary'
+          |  
+          = link_to t('common.edit'), edit_admin_ticket_path(ticket), class: 'button is-warning'
+          |  
+          = link_to t('common.destroy'), [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger'
+= link_to "New Ticket", admin_search_path, class: 'button is-primary'
