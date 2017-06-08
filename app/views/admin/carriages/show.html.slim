@@ -1,36 +1,37 @@
-p
-  strong
-    | Carriage #
+h1.title
+  = t('.carriage')
+  |  #
   = @carriage.number
-  br
-  strong
-    | Carriage Class:
-  = @carriage.type
-  br
-  strong
-    | Upper Seat: 
-  = @carriage.upper_seat
-  | , side: 
-  = @carriage.side_upper_seat
-  br
-  strong
-    | Bottom Seat: 
-  = @carriage.bottom_seat
-  | , side: 
-  = @carriage.side_bottom_seat
-  br
-  strong
-    | Sitting Seat: 
-  = @carriage.sitting_seat
-  br
-  strong
-    | Train:
-  - if @carriage.train.present?
-    = @carriage.train.number
-  - else
-    |  Train not assigned! 
-= link_to 'Edit', edit_admin_carriage_path(@carriage)
-|  | 
-= link_to 'Back', [:admin, @carriage.train]
-|  | 
-= link_to 'Destroy', [:admin, @carriage], method: :delete, data: { confirm: 'Are you sure?' }
+hr
+strong
+  | Carriage Class: 
+= @carriage.type
+br
+strong
+  | Upper Seat: 
+= @carriage.upper_seat
+| , side: 
+= @carriage.side_upper_seat
+br
+strong
+  | Bottom Seat: 
+= @carriage.bottom_seat
+| , side: 
+= @carriage.side_bottom_seat
+br
+strong
+  | Sitting Seat: 
+= @carriage.sitting_seat
+br
+strong
+  | Train: 
+- if @carriage.train.present?
+  = @carriage.train.number
+- else
+  |  Train not assigned! 
+.section
+= link_to t('common.back'), [:admin, @carriage.train], class: "button is-primary"
+|  
+= link_to t('common.edit'), edit_admin_carriage_path(@carriage), class: "button is-warning"
+|  
+= link_to t('common.destroy'), [:admin, @carriage], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger'

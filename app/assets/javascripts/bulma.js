@@ -9,6 +9,6 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('button.delete').on('click', function(){
-    $(this).parent()fadeOut('slow');
+    $(this).parent().fadeOut('slow');
   });
 });
