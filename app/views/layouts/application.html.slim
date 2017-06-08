@@ -22,6 +22,10 @@ html lang="en"
     = render 'layouts/navigation'
     .container
       .section
+        - flash.each do |type, msg|
+          div(class="notification #{ bulma_class_for(type) }")
+            button.delete
+            = msg
         = yield
     footer.footer
        .container

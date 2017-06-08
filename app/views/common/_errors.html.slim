@@ -1,8 +1,9 @@
 - if resource.errors.any?
-  .alert.alert-danger
-    h4 
+  article.message.is-danger
+    .message-header
       = t('common.errors', name: resource.class)
-    ul
-      - resource.errors.full_messages.each do |message|
-        li
-          = message
+    .message-body
+      ul
+        - resource.errors.full_messages.each do |message|
+          li
+            = message

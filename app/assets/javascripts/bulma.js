@@ -7,4 +7,8 @@ $(document).on('turbolinks:load', function() {
     $(this).toggleClass('is-active');
     menu.toggleClass('is-active');
   });
+
+  $('button.delete').on('click', function(){
+    $(this).parent()fadeOut('slow');
+  });
 });
