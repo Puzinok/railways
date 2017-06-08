@@ -14,7 +14,7 @@ class Carriage < ApplicationRecord
   validates :number, uniqueness: { scope: :train_id }
 
   def self.types
-    %w(EconomyCarriage CoupeCarriage SleppingCarriage SittingCarriage)
+    %w[EconomyCarriage CoupeCarriage SleppingCarriage SittingCarriage]
   end
 
   private

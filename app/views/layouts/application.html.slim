@@ -21,12 +21,15 @@ html lang="en"
   body
     = render 'layouts/navigation'
     .container
-      .row
-        .col-lg-12
-          = bootstrap_flash
-          = yield
+      .section
+        - flash.each do |type, msg|
+          div(class="notification #{ bulma_class_for(type) }")
+            button.delete
+            = msg
+        = yield
     footer.footer
        .container
-         p 
-           '&copy;  Puzin Pavel, 2017. Учебный проект в
-           a href='http://thinknetika.com' онлайн-школе Thinknetica.
+        .content.has-text-centered
+          p
+            '&copy;  Puzin Pavel, 2017. Учебный проект в
+            a href='http://thinknetika.com' онлайн-школе Thinknetica.

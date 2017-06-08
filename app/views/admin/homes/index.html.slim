@@ -1,9 +1,7 @@
-ul
-  li
-    = link_to t('common.trains'), admin_trains_path
-  li
-    = link_to t('common.tickets'), admin_tickets_path
-  li
-    = link_to t('common.routes'), admin_routes_path
-  li
-    = link_to t('common.railway_stations'), admin_railway_stations_path
+= link_to t('common.trains'), admin_trains_path, class: 'button is-primary is-outlined'
+|  
+= link_to t('common.tickets'), admin_tickets_path, class: 'button is-primary is-outlined'
+|  
+= link_to t('common.routes'), admin_routes_path, class: 'button is-primary is-outlined'
+|  
+= link_to t('common.railway_stations'), admin_railway_stations_path, class: 'button is-primary is-outlined'

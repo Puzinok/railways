@@ -1,4 +1,6 @@
 = form_for [:admin, train], html: { style: 'display: none', class: 'form-inline' } do |f|
-    .form-group
-      = f.text_field :number, class: 'form-control'
-    = f.button t('.submit'), class: 'btn btn-primary'
+  .field.has-addons
+    p.control
+      = f.text_field :number, class: 'input is-primary'
+    p.control
+      = f.button t('.submit'), class: 'button is-primary'

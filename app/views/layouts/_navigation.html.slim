@@ -1,26 +1,25 @@
-.navbar.navbar-default.navbar-static-top
-        .container
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          = link_to "Railways", root_path, class: 'navbar-brand'
-          .navbar-collapse.collapse.navbar-responsive-collapse
-            ul.nav.navbar-nav
-              li
-                = link_to t('common.my_tickets'), tickets_path
-              li
-                = link_to t('common.search'), search_path
-            ul.nav.navbar-nav.navbar-right
-              - if user_signed_in?
-                li
-                  p
-                  = t('common.hello')
-                  ',
-                  = current_user.full_name
-                  '!
-                li
-                  = link_to t('common.sign_out'), destroy_user_session_path, method: :delete
-              - else
-                li
-                  = link_to t('common.sign_in'), new_user_session_path
+nav.nav.has-shadow
+  .container
+    .nav-left
+      = link_to "Railways", root_path, class: 'nav-item'
+      = link_to t('common.my_tickets'), tickets_path, class: 'nav-item is-tab is-hidden-mobile'
+      = link_to t('common.search'), search_path, class: 'nav-item is-tab is-hidden-mobile'
+      - if user_signed_in? && current_user.admin?
+        = link_to t('common.dashboard'), admin_root_path, class: 'nav-item is-tab'
+    span#nav-toggle.nav-toggle
+      span
+      span
+      span
+    #nav-menu.nav-right.nav-menu
+      = link_to t('common.my_tickets'), tickets_path, class: 'nav-item is-tab is-hidden-tablet'
+      = link_to t('common.search'), search_path, class: 'nav-item is-tab is-hidden-tablet'
+      a.nav-item.is-tab
+        - if user_signed_in?
+          = t('common.hello')
+          ',
+          = current_user.full_name
+          '!
+        - else
+          = link_to t('common.sign_in'), new_user_session_path, class: 'nav-item is-tab'
+      - if user_signed_in?
+        = link_to t('common.sign_out'), destroy_user_session_path, class: 'nav-item is-tab', method: :delete

@@ -1,24 +1,27 @@
 = form_for [:admin, @train, carriage.becomes(Carriage)], html: { class: 'form-horizontal'} do |f|
   = render 'common/errors', resource: carriage
-  .row
-    .col-md-2#carriage_inputs
-      .form-group
-        = f.label :type
-        = f.select :type, Carriage.types.map { |t| [t.underscore.humanize.split[0], t] }, { include_blank: true }, { class: 'form-control' }  
-      .form-group.economy_carriage.coupe_carriage
-        = f.label :upper_seat
-        = f.number_field :upper_seat, class: 'form-control'
-      .form-group.economy_carriage.coupe_carriage.slepping_carriage
-        = f.label :bottom_seat
-        = f.number_field :bottom_seat, class: 'form-control'
-      .form-group.economy_carriage
-        = f.label :side_upper_seat
-        = f.number_field :side_upper_seat, class: 'form-control'
-      .form-group.economy_carriage
-        = f.label :side_bottom_seat
-        = f.number_field :side_bottom_seat, class: 'form-control'
-      .form-group.sitting_carriage
-        = f.label :sitting_seat
-        = f.number_field :sitting_seat, class: 'form-control'
-      .form-group
-        = f.button t('common.save'), class: 'btn btn-primary'
+  .column.is-3
+    .div#carriage_inputs
+      .field
+        = f.label :type, class: 'label'
+        p.control
+          span.select
+            = f.select :type, Carriage.types.map { |t| [t.underscore.humanize.split[0], t] },
+                                                 { include_blank: true }
+      
+      .field.economy_carriage.coupe_carriage
+        = f.label :upper_seat, class: 'label'
+        = f.number_field :upper_seat, class: 'input'
+      .field.economy_carriage.coupe_carriage.slepping_carriage
+        = f.label :bottom_seat, class: 'label'
+        = f.number_field :bottom_seat, class: 'input'
+      .field.economy_carriage
+        = f.label :side_upper_seat, class: 'label'
+        = f.number_field :side_upper_seat, class: 'input'
+      .field.economy_carriage
+        = f.label :side_bottom_seat, class: 'label'
+        = f.number_field :side_bottom_seat, class: 'input'
+      .field.sitting_carriage
+        = f.label :sitting_seat, class: 'label'
+        = f.number_field :sitting_seat, class: 'input'
+      = f.button t('common.save'), class: 'button is-primary'

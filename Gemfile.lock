@@ -44,6 +44,8 @@ GEM
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
+    bulma-rails (0.4.2)
+      sass (~> 3.2)
     byebug (9.0.6)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -193,11 +195,6 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.2)
-    twitter-bootstrap-rails (4.0.0)
-      actionpack (~> 5.0, >= 5.0.1)
-      execjs (~> 2.7)
-      less-rails (~> 2.8, >= 2.8.0)
-      railties (~> 5.0, >= 5.0.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -217,6 +214,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bulma-rails (~> 0.4.2)
   byebug
   coffee-rails (~> 4.2)
   devise
@@ -236,7 +234,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   therubyracer
   turbolinks (~> 5)
-  twitter-bootstrap-rails
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
